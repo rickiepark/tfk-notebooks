@@ -8,5 +8,6 @@ dependencies:
 - pandas
 - matplotlib
 - scikit-learn
+- seaborn
 - pip:
     - keras
