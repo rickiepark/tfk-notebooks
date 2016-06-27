@@ -1,0 +1,38 @@
+Chapter 3:
+	'New Groups' section:
+		- 'That is, tf.sub function has returned the tensor dist' should be 'That is, tf.sub function has returned the tensor diff'
+		- 'In the distance tensor we can see' should be 'In the distances tensor we can see'
+	'Computation of the new centroids' section:
+		- 'where the assignment tensor match with the K cluster' should be 'where the assignments tensor match with the K cluster'
+	'Graph execution' section:
+		- 'and especially the number of clustersk' should be 'and especially the number of clusters k'
+Chapter 4:
+	- In [27] Link URL, there is a blank between '/master/' and 'tutorials/'
+	'The MNIST data-set' section:
+		- [32] Link not found. input_data.py is moved to 'https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/mnist/input_data.py'
+		- 'uploaded to the book’s github for your comodity.' should be 'uploaded to the book’s github for your commodity.'
+		- 'the level of lackness of each pixel between 0 and 1' should be 'the level of blackness of each pixel between 0 and 1'
+		- 'So mnist.train.labelses is a tensor shaped' should be 'So mnist.train.labels is a tensor shaped'
+		- 'Dimension(60000), Dimension10)' should be 'Dimension(60000), Dimension(10)'
+	'An artificial neutron' section:
+		- section title 'An artificial neutron' should be 'An artificial neuron'
+	'Programming in TensorFlow' section:
+		- 'a constant tensor tf.zeros[784,10] dimensioned like W' should be 'a constant tensor tf.zeros([784,10]) dimensioned like W'
+Chapter 5:
+	- 'by Yann LeCunn and others' should be 'by Yann LeCun and others'
+	'Convolutional Neural Networks' section:
+		- 'also known as CNN’s or CovNets' should be 'also known as CNN’s or ConvNets'
+	'Training and evaluation of the model' section:
+		- In  [42] Link URL, there is a blank between '/master/' and 'api_docs/'
+Chapter 6:
+	'Execution environment with GPUs' section:
+		- In first code block, 'printsess.run(c)' should be 'print sess.run(c)'
+		- In third code block, code below 'with' statement must be indented and 'printsess.run(c)'' should be 'print sess.run(c)'
+	'Parallelism with several GPUs' section:
+		- 'In case that we have more tan one GPU' should be 'In case that we have more than one GPU'
+		- In first code block, code below 'with' statement must be indented
+	'Code example with GPUs' section:
+		- In fifth code block, code below 'with' statement must be indented
+Closing:
+	- 'It is mpressive, isn’t it?' should be 'It is impressive, isn’t it?'
+	- 'They have a lot of espectations of the future' should be 'They have a lot of expectations of the future'
