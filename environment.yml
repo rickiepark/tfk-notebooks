@@ -10,6 +10,8 @@ dependencies:
 - scikit-learn
 - seaborn
 - traitlets
+- flask
+- requests
 - pip:
     - keras
     - watermark
