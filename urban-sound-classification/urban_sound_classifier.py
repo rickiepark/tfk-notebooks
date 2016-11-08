@@ -47,7 +47,9 @@ h_3 = tf.nn.sigmoid(tf.matmul(h_2, W_3) + b_3)
 
 W = tf.Variable(tf.random_normal([n_hidden_units_three, n_classes], mean=0, stddev=sd), name="w")
 b = tf.Variable(tf.random_normal([n_classes], mean = 0, stddev=sd), name="b")
-y_ = tf.nn.softmax(tf.matmul(h_3, W) + b)
+z = tf.matmul(h_3, W) + b
+y_sigmoid = tf.nn.sigmoid(z)
+y_ = tf.nn.softmax(z)
 
 init = tf.initialize_all_variables()
 
@@ -80,6 +82,8 @@ def upload_file():
     # 모델 실행
     mfccs, chroma, mel, contrast,tonnetz = extract_feature(audio_file)
     x_data = np.hstack([mfccs,chroma,mel,contrast,tonnetz])
-    index = np.argmax(sess.run(y_, feed_dict={X: x_data.reshape(1,-1)}))
+    y_hat, sigmoid = sess.run([y_, y_sigmoid], feed_dict={X: x_data.reshape(1,-1)})
+    index = np.argmax(y_hat)
+    print(sigmoid)
     # 소리 인덱스 리턴
     return '%d' % (index)
