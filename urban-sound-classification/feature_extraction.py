@@ -15,20 +15,22 @@ def extract_feature(file_name):
 
 def parse_audio_files(filenames):
     rows = len(filenames)
-    features, labels = np.zeros((rows,193)), np.zeros((rows,10))
+    features, labels, groups = np.zeros((rows,193)), np.zeros((rows,10)), np.zeros((rows,1))
     i = 0
     for fn in filenames:
         try:
             mfccs, chroma, mel, contrast,tonnetz = extract_feature(fn)
             ext_features = np.hstack([mfccs,chroma,mel,contrast,tonnetz])
             y_col = int(fn.split('/')[3].split('-')[1])
+            group = int(fn.split('/')[3].split('-')[0])
         except:
             print(fn)
         else:
             features[i] = ext_features
             labels[i, y_col] = 1
+            groups[i] = group
             i += 1
-    return features, labels
+    return features, labels, groups
 
 
 audio_files = []
@@ -38,9 +40,9 @@ for i in range(1,11):
 print(len(audio_files))
 for i in range(9):
     files = audio_files[i*1000: (i+1)*1000]
-    X, y = parse_audio_files(files)
+    X, y, groups = parse_audio_files(files)
     for r in y:
         if np.sum(r) > 1.5:
             print('error occured')
             break
-    np.savez('urban_sound_%d' % i, X=X, y=y)
+    np.savez('urban_sound_%d' % i, X=X, y=y, groups=groups)
