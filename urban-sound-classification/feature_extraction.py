@@ -22,12 +22,13 @@ def parse_audio_files(filenames):
             mfccs, chroma, mel, contrast,tonnetz = extract_feature(fn)
             ext_features = np.hstack([mfccs,chroma,mel,contrast,tonnetz])
             y_col = int(fn.split('/')[3].split('-')[1])
-            groups = int(fn.split('/')[3].split('-')[0])
+            group = int(fn.split('/')[3].split('-')[0])
         except:
             print(fn)
         else:
             features[i] = ext_features
             labels[i, y_col] = 1
+            groups[i] = group
             i += 1
     return features, labels, groups
 
